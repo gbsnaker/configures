@@ -1,0 +1,13 @@
+vmware-modconfig --console --install-all 
+sudo /etc/init.d/vmware status 
+
+http://forums.fedoraforum.org/showthread.php?t=283833
+
+
+
+
+ for i in ansible master slave1 slave2 ;do docker-machine -s '/data/docker-machine/machine' create -d virtualbox --engine-insecure-registry=http://localhost:5000  --engine-registry-mirror=https://nlt3r1f7.mirror.aliyuncs.com $i ;done
+
+    通过本机的ansible 创建docker-machine 
+    通过本机的ansible 操作docker-machine中创建的虚拟机。 
+

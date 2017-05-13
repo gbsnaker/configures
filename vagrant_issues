@@ -1,0 +1,50 @@
+安装插件 
+vagrant plugin install vagrant-vbguest 
+
+参考
+http://stackoverflow.com/questions/42074246/vagrant-error-unable-to-mount-virtualbox-shared-folders-guest-additions-vboxs 
+
+手动下载box
+wget download-url
+当你下载完毕以后，使用
+vagrant box add centos/7 path/to/xx.box
+
+
+参考 
+https://segmentfault.com/q/1010000008202207 
+http://www.dreamxu.com/vagrant/ 
+
+vagrant box list    # 列出现有的 box 
+vagrant init Ubuntu_Server_14.04  
+
+
+vagrant up - 启动虚拟机，如果一个项目第一次执行，它会初始化一个虚拟机
+vagrant ssh - 连接虚拟机
+vagrant halt - 关闭虚拟机，普通的关机
+vagrant suspend - 关闭虚拟机，类似休眠
+vagrant reload - 重启虚拟机
+vagrant destroy - 删除虚拟机，虚拟机没了但是 box 还在 
+
+
+vagrant package 打包  
+
+参考
+http://www.dreamxu.com/vagrant/ 
+
+
+ubuntu 15.04 源
+http://forum.ubuntu.org.cn/viewtopic.php?t=465323
+
+
+guest安装扩展增强
+http://berukann.hatenablog.jp/entry/2016/01/24/163124
+vagrant集群的管理
+https://segmentfault.com/a/1190000005875116
+
+
+https://github.com/ansible/ansible-container/issues/95
+ pip install --upgrade setuptools
+
+
+
+
