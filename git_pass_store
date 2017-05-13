@@ -1,0 +1,50 @@
+help 
+1 git config credential.helper store
+2 git config credential.helper 'cache --timeout=300'
+3 windows: git config --global credential.helper wincred
+4 $ git config credential.helper store
+$ git push https://github.com/repo.git
+
+Username for 'https://github.com': <USERNAME>
+Password for 'https://USERNAME@github.com': <PASSWORD>
+5 
+If you already have your SSH keys set up and are still getting the password prompt, make sure your repo URL is in the form
+
+git+ssh://git@github.com/username/reponame.git
+as opposed to
+
+https://github.com/username/reponame.git
+To see your repo URL, run:
+
+git remote show origin
+You can change the URL with git remote set-url like so:
+
+git remote set-url origin git+ssh://git@github.com/username/reponame.git
+
+6 
+
+Step 1 -
+
+Create SSH keys on your linux system using below command
+
+ssh-keygen -t rsa -b 4096 -C "your_email"
+It will ask for passphrase and file name (default will be ~/.ssh/id_rsa, ~/.ssh/id_rsa.pub)
+
+Step 2 -
+
+Once files created add public key id_rsa.pub to github account ssh section.
+
+Step 3 -
+
+On your machine add private key id_rsa to ssh-agent using below command
+
+ssh-add ~/.ssh/id_rsa 
+Step 4 -
+
+Now add remote url git@github.com:user_name/repo_name.git to your local git repo using below command.
+
+git remote remove origin
+git remote add origin git@github.com:user_name/repo_name.git
+Thats it.
+
+
