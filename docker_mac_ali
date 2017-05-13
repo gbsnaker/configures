@@ -1,0 +1,35 @@
+
+使用加速器将会提升您在国内获取Docker官方镜像的速度！
+您的专属加速器地址
+操作文档
+
+    Ubuntu
+    CentOS
+    Windows
+    Mac
+
+安装／升级你的Docker客户端
+
+    对于10.10.3以下的用户 推荐使用 Docker Toolbox
+        Toolbox的介绍和帮助：mirrors.aliyun.com/help/docker-toolbox
+        Mac系统的安装文件目录：http://mirrors.aliyun.com/docker-toolbox/mac/docker-toolbox/
+    对于10.10.3以上的用户 推荐使用 Docker for Mac
+        Mac系统的安装文件目录：http://mirrors.aliyun.com/docker-toolbox/mac/docker-for-mac/
+
+如何使用Docker加速器
+
+    创建一台安装有Docker环境的Linux虚拟机，指定机器名称为default，同时配置Docker加速器地址。
+
+    docker-machine create --engine-registry-mirror=https://nlt3r1f7.mirror.aliyuncs.com -d virtualbox default
+
+    查看机器的环境配置，并配置到本地，并通过Docker客户端访问Docker服务。
+
+    docker-machine env default
+    eval "$(docker-machine env default)"
+    docker info
+
+相关文档
+
+    Docker 命令参考文档
+    Dockerfile 镜像构建参考文档
+

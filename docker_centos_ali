@@ -1,0 +1,41 @@
+安装／升级你的Docker客户端
+
+您可以通过阿里云的镜像仓库下载：mirrors.aliyun.com/help/docker-engine
+
+或执行以下命令：
+
+curl -sSL http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/internet | sh -
+
+如何使用Docker加速器
+针对Docker客户端版本大于1.10的用户
+
+您可以通过修改daemon配置文件/etc/docker/daemon.json来使用加速器：
+
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["https://nlt3r1f7.mirror.aliyuncs.com"]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
+针对Docker客户的版本小于等于1.10的用户
+
+或者想配置启动参数，可以使用下面的命令将配置添加到docker daemon的启动参数中。
+
+    系统要求 CentOS 7 以上，Docker 1.9 以上。
+
+    sudo cp -n /lib/systemd/system/docker.service /etc/systemd/system/docker.service
+
+    Docker 1.12 以下版本使用 docker daemon 命令
+
+    sudo sed -i "s|ExecStart=/usr/bin/docker daemon|ExecStart=/usr/bin/docker daemon --registry-mirror=https://qxx96o44.mirror.aliyuncs.com|g" /etc/systemd/system/docker.service
+
+    Docker 1.12 及以上版本使用 dockerd 命令
+
+    sudo sed -i "s|ExecStart=/usr/bin/dockerd|ExecStart=/usr/bin/dockerd --registry-mirror=https://qxx96o44.mirror.aliyuncs.com|g" /etc/systemd/system/docker.service
+    sudo systemctl daemon-reload
+    sudo service docker restart
+
+
