@@ -5,3 +5,4 @@
 <h5>4 add npmrc</h5>
 <h5>5 add vmware_help</h5> 
 <h5>6 add vagrant_issues</h5>
+<h6> git config credential.helper store</h6>
